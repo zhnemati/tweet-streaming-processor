@@ -43,7 +43,10 @@ A docker file is created to dockerize the complete codebase
 A bash file is written that sets up the env, runs lint on the code and submits the job
 ## Architecture and Arrangement:
 
-
+![alt text](https://github.com/zhnemati/tweet-streaming-processor/blob/main/architecture.jpg)
 
 
 ## Artifacts : 
+
+![alt text](https://github.com/zhnemati/tweet-streaming-processor/blob/main/code_artifact.png)
+
