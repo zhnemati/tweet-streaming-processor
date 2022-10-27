@@ -25,7 +25,7 @@ value_serializer=lambda x: dumps(x).encode('utf-8'))
 
 class MyStream(tweepy.StreamingClient):
     '''
-    Inheritd twitter's streaming client and pushes the tweet to a kafka topic
+    Inherits twitter's streaming client and pushes the tweet to a kafka topic
     '''
     def on_connect(self):
         print("Connected")
