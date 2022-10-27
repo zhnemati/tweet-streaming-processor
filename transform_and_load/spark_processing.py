@@ -13,9 +13,9 @@ import pandas as pd
 
 
 #Reading the provided csv file with data of drivers,teams and countries
-df = pd.read_csv ('/home/zain/Downloads/data.csv')
+df = pd.read_csv ('data.csv')
 #Loading the credentials from env
-dotenv_path = Path('/home/zain/Documents/credentials.env')
+dotenv_path = Path('credentials.env')
 DATA=load_dotenv(dotenv_path=dotenv_path)
 KAFKA_TOPIC_NAME = os.getenv("KAFKA_TOPIC_NAME")
 KAFKA_BOOTSTRAP_SERVER = os.getenv("KAFKA_BOOTSTRAP_SERVER")

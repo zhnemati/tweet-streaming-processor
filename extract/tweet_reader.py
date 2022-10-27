@@ -13,11 +13,11 @@ from requests.exceptions import RequestException
 from requests.models import HTTPError
 from requests.sessions import TooManyRedirects
 
-dotenv_path = Path('/home/zain/Documents/credentials.env')
+dotenv_path = Path('credentials.env')
 DATA=load_dotenv(dotenv_path=dotenv_path)
 bearer_token = os.getenv("bearer_token")
 KAFKA_BOOTSTRAP_SERVER=os.getenv("KAFKA_BOOTSTRAP_SERVER")
-
+KAFKA_TOPIC_NAME=os.getenv("KAFKA_TOPIC_NAME")
 search_terms = ["formula 1", "f1", "formula1"]
 producer = KafkaProducer(bootstrap_servers=\
 [KAFKA_BOOTSTRAP_SERVER],\
@@ -37,7 +37,7 @@ class MyStream(tweepy.StreamingClient):
         if tweet.referenced_tweets is None:
             data = {'tweet' : tweet.text}
             try:
-                producer.send('tweets', value=data)
+                producer.send(KAFKA_TOPIC_NAME, value=data)
             except Exception as error:
                 print(error)
 # Creating Stream object

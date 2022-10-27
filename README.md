@@ -8,6 +8,6 @@ This is a streaming processor for live tweets, it fetches tweets based on a user
 - Install the python libraries mentioned in the requirements.txt file
 - Start the tweet_reader.py program
 - Submit the spark job using the following command
-```spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 --driver-class-path postgresql-42.5.0.jar spark-processing.py```
+```spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 --driver-class-path postgresql-42.5.0.jar spark_processing.py```
 - Go to the psql client to query and verify the data in real time
 

@@ -1,0 +1,4 @@
+COPY(select tweet,timestamp from twitterdata.sparkdata order by 2) TO '/tweet-streaming-processor/output_csvs/raw_tweets_data.csv' WITH DELIMITER ',' CSV; --extracts raw data
+COPY(select count(driver_name) as mentions,driver_name from twitterdata.sparkdata group by 2 order by 1 desc) TO '/tweet-streaming-processor/output_csvs/drivers_aggregated_by_mentions.csv' WITH DELIMITER ',' CSV; -- fetches names of drivers aggregated by mentions
+COPY(select count(team) as mentions,team,driver_name from twitterdata.sparkdata group by 2,3 order by 1 desc) TO '/tweet-streaming-processor/output_csvs/teams_aggregated_by_mentions_and_drivers.csv' WITH DELIMITER ',' CSV;  -- fetches teams aggregated by mentions and drivers
+COPY(select count(tweet),country from twitterdata.sparkdata group by 2 order by 1 desc) TO '/tweet-streaming-processor/output_csvs/tweets_aggregated_by_countries.csv' WITH DELIMITER ',' CSV; -- fetches tweets aggregated by country
