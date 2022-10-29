@@ -13,7 +13,7 @@ import pandas as pd
 
 
 #Reading the provided csv file with data of drivers,teams and countries
-df = pd.read_csv ('data.csv')
+df = pd.read_csv ('/tweet-streaming-processor/modified_data.csv')
 #Loading the credentials from env
 dotenv_path = Path('credentials.env')
 DATA=load_dotenv(dotenv_path=dotenv_path)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     spark = (
         SparkSession.builder.appName("Kafka Pyspark Streaming Learning")
         .master("local[*]")
-        .config("spark.jars","/home/zain/Documents/postgresql-42.5.0.jar")
+        .config("spark.jars","postgresql-42.5.0.jar")
         .getOrCreate()
     )
     spark.sparkContext.setLogLevel("ERROR")
