@@ -28,7 +28,7 @@ JDBC_CONNECTION_STRING=os.getenv("JDBC_CONNECTION_STRING")
 if __name__ == "__main__":
     #Initiating spark session and providing external spark jar for jdbc sink
     spark = (
-        SparkSession.builder.appName("Kafka Pyspark Streaming Learning")
+        SparkSession.builder.appName("Twitter Streaming Job")
         .master("local[*]")
         .config("spark.jars","postgresql-42.5.0.jar")
         .getOrCreate()
